@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<!--xmlns:ui="http://java.sun.com/jsf/facelets"-->
+<h:head>
+    <h:outputStylesheet library="css" name="stylesView.css"/>
+
+    <title>
+        #{msgs.titleView}
+    </title>
+</h:head>
+
+<h:body>
+    #{msgs.head}
+    <h:form>
+        <h:dataTable value="#{data.users}" var="entity">
+                     <!--styleClass="users" headerClass="usersHeader"-->
+                     <!--columnClasses="Name, Surname, Login, Email, PhoneNumber">-->
+            <!--Имя-->
+            <h:column>
+                <f:facet name="header">
+                    <!--Сортировка имён-->
+                    <h:commandLink action="#{data.sortByName}">
+                        #{msgs.userName}
+                    </h:commandLink>
+                </f:facet>
+                #{entity.name}
+            </h:column>
+            <!--Фамилия-->
+            <h:column>
+                <f:facet name="header">
+                    <!--Сортировка фамилий-->
+                    <h:commandLink action="#{data.sortBySurname}">
+                        #{msgs.userSurname}
+                    </h:commandLink>
+                </f:facet>
+                #{entity.surname}
+            </h:column>
+            <!--Логин-->
+            <h:column>
+                <f:facet name="header">
+                    <!--Cортировка логинов-->
+                    <h:commandLink action="#{data.sortByLogin}">
+                        #{msgs.userLogin}
+                    </h:commandLink>
+                </f:facet>
+                #{entity.login}
+            </h:column>
+            <!--Мыло-->
+            <h:column>
+                <f:facet name="header">
+                    <!--Сортировка е-мейлов-->
+                    <h:commandLink action="#{data.sortByEmail}">
+                        #{msgs.userEMail}
+                    </h:commandLink>
+                </f:facet>
+                #{entity.eMail}
+            </h:column>
+            <!--Телефон-->
+            <h:column>
+                <f:facet name="header">
+                    <!--Сортровка номеров телефона-->
+                    <h:commandLink action="#{data.sortByPhoneNumber}">
+                        #{msgs.userPhoneNumber}
+                    </h:commandLink>
+                </f:facet>
+                #{entity.phoneNumber}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+    <a href="index.xhtml" title="Возвращение в главное меню">Вернуться в меню</a>
+</h:body>
+</html>
